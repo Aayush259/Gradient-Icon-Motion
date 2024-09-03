@@ -13,12 +13,16 @@ interface BackgroundGradientAnimationProps extends CommonProps {
     fifthColor?: string;
     size?: string;
     blendingValue?: string;
+    animationHeight?: string;
+    animationWidth?: string;
 };
 
 interface FloatingIconsProps extends CommonProps {
     icons?: string[];
     iconColor?: string;
     floatDirectionReverse?: boolean;
+    animationHeight?: string;
+    animationWidth?: string;
 };
 
 export { BackgroundGradientAnimationProps, FloatingIconsProps, CommonProps };
