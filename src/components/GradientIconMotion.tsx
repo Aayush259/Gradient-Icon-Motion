@@ -1,9 +1,9 @@
 import React from 'react';
 import { BackgroundGradientAnimation } from './BackgroundGradient';
 import { FloatingIcons } from './FloatingIcons';
-import { FloatingIconsProps, BackgroundGradientAnimationProps, Children } from '../interface/props';
+import { FloatingIconsProps, BackgroundGradientAnimationProps, CommonProps } from '../interface/props';
 
-interface GradientIconMotionProps extends FloatingIconsProps, BackgroundGradientAnimationProps, Children {
+interface GradientIconMotionProps extends FloatingIconsProps, BackgroundGradientAnimationProps, CommonProps {
     containerClasses?: string;
 }
 
