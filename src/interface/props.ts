@@ -20,7 +20,6 @@ interface FloatingIconsProps extends Children {
     icons?: string[];
     iconColor?: string;
     floatDirectionReverse?: boolean;
-    containerClasses?: string;
     iconClasses?: string;
 };
 

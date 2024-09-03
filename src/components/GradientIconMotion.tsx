@@ -1,9 +1,11 @@
 import React from 'react';
 import { BackgroundGradientAnimation } from './BackgroundGradient';
 import { FloatingIcons } from './FloatingIcons';
-import { FloatingIconsProps, BackgroundGradientAnimationProps } from '../interface/props';
+import { FloatingIconsProps, BackgroundGradientAnimationProps, Children } from '../interface/props';
 
-interface GradientIconMotionProps extends FloatingIconsProps, BackgroundGradientAnimationProps { }
+interface GradientIconMotionProps extends FloatingIconsProps, BackgroundGradientAnimationProps, Children {
+    containerClasses?: string;
+}
 
 const GradientIconMotion: React.FC<GradientIconMotionProps> = ({
     gradientBackgroundStart,
@@ -20,27 +22,30 @@ const GradientIconMotion: React.FC<GradientIconMotionProps> = ({
     iconClasses,
     iconColor,
     icons,
+    children,
 }) => {
     return (
         <>
-            <BackgroundGradientAnimation
-                gradientBackgroundEnd={gradientBackgroundEnd}
-                gradientBackgroundStart={gradientBackgroundStart}
-                firstColor={firstColor}
-                secondColor={secondColor}
-                thirdColor={thirdColor}
-                fourthColor={fourthColor}
-                fifthColor={fifthColor}
-                size={size}
-                blendingValue={blendingValue}
-            />
-            <FloatingIcons
-                containerClasses={containerClasses}
-                floatDirectionReverse={floatDirectionReverse}
-                iconClasses={iconClasses}
-                iconColor={iconColor}
-                icons={icons}
-            />
+            <div className={`${containerClasses}`}>
+                {children}
+                <BackgroundGradientAnimation
+                    gradientBackgroundEnd={gradientBackgroundEnd}
+                    gradientBackgroundStart={gradientBackgroundStart}
+                    firstColor={firstColor}
+                    secondColor={secondColor}
+                    thirdColor={thirdColor}
+                    fourthColor={fourthColor}
+                    fifthColor={fifthColor}
+                    size={size}
+                    blendingValue={blendingValue}
+                />
+                <FloatingIcons
+                    floatDirectionReverse={floatDirectionReverse}
+                    iconClasses={iconClasses}
+                    iconColor={iconColor}
+                    icons={icons}
+                />
+            </div>
         </>
     );
 };

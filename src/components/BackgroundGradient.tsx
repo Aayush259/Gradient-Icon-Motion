@@ -11,6 +11,7 @@ const BackgroundGradientAnimation: React.FC<BackgroundGradientAnimationProps> = 
     fifthColor = "180, 180, 50",
     size = "80%",
     blendingValue = "hard-light",
+    children,
 }) => {
 
     useEffect(() => {
@@ -38,6 +39,8 @@ const BackgroundGradientAnimation: React.FC<BackgroundGradientAnimationProps> = 
     }, []);
 
     return (
+        <>
+        <div>{children}</div>
         <div
             className={
                 `h-screen w-screen fixed overflow-hidden top-0 left-0 bg-[linear-gradient(40deg,var(--gradient-background-start),var(--gradient-background-end))]`
@@ -93,6 +96,7 @@ const BackgroundGradientAnimation: React.FC<BackgroundGradientAnimationProps> = 
                 ></div>
             </div>
         </div>
+        </>
     );
 };
 

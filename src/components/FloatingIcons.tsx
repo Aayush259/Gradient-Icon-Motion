@@ -29,8 +29,8 @@ const FloatingIcons: React.FC<FloatingIconsProps> = ({
     icons = defaultIcons,
     iconColor = '#EEE8AA',
     floatDirectionReverse = false,
-    containerClasses = '',
     iconClasses = '',
+    children,
 }) => {
 
     // Update classes for background animation based on floatDirectionReverse.
@@ -70,34 +70,37 @@ const FloatingIcons: React.FC<FloatingIconsProps> = ({
     }, [icons]);
 
     return (
-        <div className={`w-screen h-screen fixed top-0 left-0 overflow-hidden bg-blend-overlay bg-transparent filter blur-[0.5px] ${containerClasses}`}>
-            {
-                Array(18).fill([]).map((_, i) => (
-                    <div
-                        key={i}
-                        className="flex row flex-row flex-nowrap text-nowrap whitespace-nowrap rotate-[-30deg] relative -top-1/2 -left-12"
-                    >
-                        {
-                            Array(2).fill([]).map((_, j) => (
-                                <div
-                                    key={j}
-                                    className="text-2xl flex whitespace-nowrap text-nowrap flex-nowrap opacity-60"
-                                >
-                                    {
-                                        returnRandomIcons().map(randomIcon => <FontAwesomeIcon
-                                            key={randomIcon}
-                                            icon={randomIcon as any}
-                                            style={{ color: iconColor }}
-                                            className={`p-24 sm:p-36 rotate-[30deg] ${iconClasses}`}
-                                        />)
-                                    }
-                                </div>
-                            ))
-                        }
-                    </div>
-                ))
-            }
-        </div>
+        <>
+            <div>{children}</div>
+            <div className={`w-screen h-screen fixed top-0 left-0 overflow-hidden bg-blend-overlay bg-transparent filter blur-[0.5px]`}>
+                {
+                    Array(18).fill([]).map((_, i) => (
+                        <div
+                            key={i}
+                            className="flex row flex-row flex-nowrap text-nowrap whitespace-nowrap rotate-[-30deg] relative -top-1/2 -left-12"
+                        >
+                            {
+                                Array(2).fill([]).map((_, j) => (
+                                    <div
+                                        key={j}
+                                        className="text-2xl flex whitespace-nowrap text-nowrap flex-nowrap opacity-60"
+                                    >
+                                        {
+                                            returnRandomIcons().map(randomIcon => <FontAwesomeIcon
+                                                key={randomIcon}
+                                                icon={randomIcon as any}
+                                                style={{ color: iconColor }}
+                                                className={`p-24 sm:p-36 rotate-[30deg] ${iconClasses}`}
+                                            />)
+                                        }
+                                    </div>
+                                ))
+                            }
+                        </div>
+                    ))
+                }
+            </div>
+        </>
     )
 }
 
