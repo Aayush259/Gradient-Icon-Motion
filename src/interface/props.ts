@@ -19,7 +19,6 @@ interface FloatingIconsProps extends CommonProps {
     icons?: string[];
     iconColor?: string;
     floatDirectionReverse?: boolean;
-    iconClasses?: string;
 };
 
 export { BackgroundGradientAnimationProps, FloatingIconsProps, CommonProps };

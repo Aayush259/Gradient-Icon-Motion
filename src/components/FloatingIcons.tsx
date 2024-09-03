@@ -29,7 +29,6 @@ const FloatingIcons: React.FC<FloatingIconsProps> = ({
     icons = defaultIcons,
     iconColor = '#EEE8AA',
     floatDirectionReverse = false,
-    iconClasses = '',
     children,
 }) => {
 
@@ -90,7 +89,7 @@ const FloatingIcons: React.FC<FloatingIconsProps> = ({
                                                 key={randomIcon}
                                                 icon={randomIcon as any}
                                                 style={{ color: iconColor }}
-                                                className={`p-24 sm:p-36 rotate-[30deg] ${iconClasses}`}
+                                                className={`p-24 sm:p-36 rotate-[30deg]`}
                                             />)
                                         }
                                     </div>

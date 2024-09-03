@@ -3,9 +3,7 @@ import { BackgroundGradientAnimation } from './BackgroundGradient';
 import { FloatingIcons } from './FloatingIcons';
 import { FloatingIconsProps, BackgroundGradientAnimationProps, CommonProps } from '../interface/props';
 
-interface GradientIconMotionProps extends FloatingIconsProps, BackgroundGradientAnimationProps, CommonProps {
-    containerClasses?: string;
-}
+interface GradientIconMotionProps extends FloatingIconsProps, BackgroundGradientAnimationProps, CommonProps {}
 
 const GradientIconMotion: React.FC<GradientIconMotionProps> = ({
     gradientBackgroundStart,
@@ -17,16 +15,14 @@ const GradientIconMotion: React.FC<GradientIconMotionProps> = ({
     fifthColor,
     size,
     blendingValue,
-    containerClasses,
     floatDirectionReverse,
-    iconClasses,
     iconColor,
     icons,
     children,
 }) => {
     return (
         <>
-            <div className={`${containerClasses}`}>
+            <div>
                 <div className="relative z-50">
                     {children}
                 </div>
@@ -43,7 +39,6 @@ const GradientIconMotion: React.FC<GradientIconMotionProps> = ({
                 />
                 <FloatingIcons
                     floatDirectionReverse={floatDirectionReverse}
-                    iconClasses={iconClasses}
                     iconColor={iconColor}
                     icons={icons}
                 />
