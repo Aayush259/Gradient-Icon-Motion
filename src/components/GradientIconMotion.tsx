@@ -27,7 +27,9 @@ const GradientIconMotion: React.FC<GradientIconMotionProps> = ({
     return (
         <>
             <div className={`${containerClasses}`}>
-                {children}
+                <div className="relative z-50">
+                    {children}
+                </div>
                 <BackgroundGradientAnimation
                     gradientBackgroundEnd={gradientBackgroundEnd}
                     gradientBackgroundStart={gradientBackgroundStart}
