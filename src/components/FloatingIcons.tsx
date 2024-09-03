@@ -71,7 +71,7 @@ const FloatingIcons: React.FC<FloatingIconsProps> = ({
     return (
         <>
             <div className="relative z-50">{children}</div>
-            <div className={`w-screen h-screen fixed top-0 left-0 overflow-hidden bg-blend-overlay bg-transparent filter blur-[0.5px]`}>
+            <div className={`w-screen h-screen absolute top-0 left-0 overflow-hidden bg-blend-overlay bg-transparent filter blur-[0.5px] -z-10`}>
                 {
                     Array(18).fill([]).map((_, i) => (
                         <div

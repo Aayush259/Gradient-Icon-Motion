@@ -43,7 +43,7 @@ const BackgroundGradientAnimation: React.FC<BackgroundGradientAnimationProps> = 
             <div className="relative z-50">{children}</div>
             <div
                 className={
-                    `h-screen w-screen fixed overflow-hidden top-0 left-0 bg-[linear-gradient(40deg,var(--gradient-background-start),var(--gradient-background-end))]`
+                    `h-screen w-screen absolute overflow-hidden top-0 left-0 bg-[linear-gradient(40deg,var(--gradient-background-start),var(--gradient-background-end))] -z-20`
                 }
             >
                 <svg className="absolute">
