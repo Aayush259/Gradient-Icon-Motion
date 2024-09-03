@@ -29,6 +29,8 @@ const FloatingIcons: React.FC<FloatingIconsProps> = ({
     icons = defaultIcons,
     iconColor = '#EEE8AA',
     floatDirectionReverse = false,
+    animationHeight = "100vh",
+    animationWidth = "100vw",
     children,
 }) => {
 
@@ -36,7 +38,7 @@ const FloatingIcons: React.FC<FloatingIconsProps> = ({
     useEffect(() => {
 
         const firstDivInRow: NodeListOf<HTMLElement> = document.querySelectorAll('.row div:nth-child(1)');
-        const secondDivInRow: NodeListOf<HTMLElement>  = document.querySelectorAll('.row div:nth-child(2)');
+        const secondDivInRow: NodeListOf<HTMLElement> = document.querySelectorAll('.row div:nth-child(2)');
 
         if (floatDirectionReverse) {
             firstDivInRow.forEach(div => {
@@ -70,34 +72,42 @@ const FloatingIcons: React.FC<FloatingIconsProps> = ({
 
     return (
         <>
-            <div className="relative z-50">{children}</div>
-            <div className={`w-screen h-screen absolute top-0 left-0 overflow-hidden bg-blend-overlay bg-transparent filter blur-[0.5px] -z-10`}>
-                {
-                    Array(18).fill([]).map((_, i) => (
-                        <div
-                            key={i}
-                            className="flex row flex-row flex-nowrap text-nowrap whitespace-nowrap rotate-[-30deg] relative -top-1/2 -left-12"
-                        >
-                            {
-                                Array(2).fill([]).map((_, j) => (
-                                    <div
-                                        key={j}
-                                        className="text-2xl flex whitespace-nowrap text-nowrap flex-nowrap opacity-60"
-                                    >
-                                        {
-                                            returnRandomIcons().map(randomIcon => <FontAwesomeIcon
-                                                key={randomIcon}
-                                                icon={randomIcon as any}
-                                                style={{ color: iconColor }}
-                                                className={`p-24 sm:p-36 rotate-[30deg]`}
-                                            />)
-                                        }
-                                    </div>
-                                ))
-                            }
-                        </div>
-                    ))
-                }
+            <div
+                className="relative overflow-hidden"
+                style={{
+                    height: animationHeight,
+                    width: animationWidth
+                }}
+            >
+                <div>{children}</div>
+                <div className={`w-full h-full absolute top-0 left-0 overflow-hidden bg-blend-overlay bg-transparent filter blur-[0.5px] -z-10`}>
+                    {
+                        Array(18).fill([]).map((_, i) => (
+                            <div
+                                key={i}
+                                className="flex row flex-row flex-nowrap text-nowrap whitespace-nowrap rotate-[-30deg] relative -top-1/2 -left-12"
+                            >
+                                {
+                                    Array(2).fill([]).map((_, j) => (
+                                        <div
+                                            key={j}
+                                            className="text-2xl flex whitespace-nowrap text-nowrap flex-nowrap opacity-60"
+                                        >
+                                            {
+                                                returnRandomIcons().map(randomIcon => <FontAwesomeIcon
+                                                    key={randomIcon}
+                                                    icon={randomIcon as any}
+                                                    style={{ color: iconColor }}
+                                                    className={`p-24 sm:p-36 rotate-[30deg]`}
+                                                />)
+                                            }
+                                        </div>
+                                    ))
+                                }
+                            </div>
+                        ))
+                    }
+                </div>
             </div>
         </>
     )
