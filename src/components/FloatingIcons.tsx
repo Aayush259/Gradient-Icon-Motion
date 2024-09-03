@@ -35,8 +35,8 @@ const FloatingIcons: React.FC<FloatingIconsProps> = ({
     // Update classes for background animation based on floatDirectionReverse.
     useEffect(() => {
 
-        const firstDivInRow = document.querySelectorAll('.row div:nth-child(1)');
-        const secondDivInRow = document.querySelectorAll('.row div:nth-child(2)');
+        const firstDivInRow: NodeListOf<HTMLElement> = document.querySelectorAll('.row div:nth-child(1)');
+        const secondDivInRow: NodeListOf<HTMLElement>  = document.querySelectorAll('.row div:nth-child(2)');
 
         if (floatDirectionReverse) {
             firstDivInRow.forEach(div => {
