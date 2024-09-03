@@ -1,5 +1,10 @@
+import { Children } from "react";
 
-interface BackgroundGradientAnimationProps {
+interface Children {
+    children?: React.ReactNode;
+}
+
+interface BackgroundGradientAnimationProps extends Children {
     gradientBackgroundStart?: string;
     gradientBackgroundEnd?: string;
     firstColor?: string;
@@ -11,7 +16,7 @@ interface BackgroundGradientAnimationProps {
     blendingValue?: string;
 };
 
-interface FloatingIconsProps {
+interface FloatingIconsProps extends Children {
     icons?: string[];
     iconColor?: string;
     floatDirectionReverse?: boolean;
@@ -19,4 +24,4 @@ interface FloatingIconsProps {
     iconClasses?: string;
 };
 
-export { BackgroundGradientAnimationProps, FloatingIconsProps };
+export { BackgroundGradientAnimationProps, FloatingIconsProps, Children };
