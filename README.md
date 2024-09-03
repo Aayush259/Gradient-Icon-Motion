@@ -1,5 +1,7 @@
 # Gradient Icon Motion
 
+[![npm version](https://img.shields.io/npm/v/gradient-icon-motion.svg?label=gradient-icon-motion)](https://www.npmjs.com/package/gradient-icon-motion)
+
 This package provides three React components for animated backgrounds and floating icons.
 
 ## Components
